@@ -1,0 +1,6 @@
+useDynLib(clogitL1)
+export(clogitL1)
+export(print.clogitL1)
+export(plot.clogitL1)
+export(cv.clogitL1)
+export(plot.cv.clogitL1)
