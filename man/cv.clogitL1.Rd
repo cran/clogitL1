@@ -35,7 +35,7 @@ An object of type \code{cv.clogitL1} with the following fields:
  \code{\link{clogitL1}}, \code{\link{plot.cv.clogitL1}}
 }
 \examples{
-set.seed(142)
+set.seed(145)
 
 # data parameters
 K = 10 # number of strata

@@ -29,7 +29,7 @@ prints a 3 column data frame with columns:
 }
 
 \examples{
-set.seed(142)
+set.seed(145)
 
 # data parameters
 K = 10 # number of strata

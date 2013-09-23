@@ -23,7 +23,7 @@ Returns a list with a elements \code{Coefficients}, which holds the matrix of co
 }
 
 \examples{
-set.seed(142)
+set.seed(145)
 
 # data parameters
 K = 10 # number of strata

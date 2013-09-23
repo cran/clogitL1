@@ -47,7 +47,7 @@ The sequence of models implied by \code{numLambda} and \code{minLambdaRatio} is 
 
 \examples{
 
-set.seed(142)
+set.seed(145)
 # data parameters
 K = 10 # number of strata
 n = 5 # number in strata
