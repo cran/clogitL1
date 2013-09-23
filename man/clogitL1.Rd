@@ -6,15 +6,15 @@
 }
 
 \usage{
- clogitL1 (y, X, strata, numLambda=100, 
-	minLambdaRatio=0.000001, switch=floor(0.9*numLambda), alpha = 1)
+ clogitL1 (x, y, strata, numLambda=100, 
+	minLambdaRatio=0.000001, switch=0, alpha = 1)
 }
 
 \arguments{
-\item{y}{a vector of binary responses with 1 for cases and 0 for controls.}
-\item{X}{a matrix with the same number of rows as the length of y and p columns. Contains the p-vector regressor values as rows}
+\item{x}{matrix with rows equalling the number of observations. Contains the p-vector regressor values as rows}
+\item{y}{vector of binary responses with 1 for cases and 0 for controls.}
 \item{strata}{vector with stratum membership of each observation.}
-\item{numLambda}{number of different values of the regularisation parameter \eqn{\lambda} at which to parameter estimates. First fit is made at value just below smallest regularisation parameter value at which all parameter estimates are 0; last fit made at this value multipled by \code{minLambdaRatio}}
+\item{numLambda}{number of different values of the regularisation parameter \eqn{\lambda} at which to compute parameter estimates. First fit is made at value just below smallest regularisation parameter value at which all parameter estimates are 0; last fit made at this value multipled by \code{minLambdaRatio}}
 \item{minLambdaRatio}{ratio of smallest to larget value of regularisation parameter \eqn{\lambda} at which we find parameter estimates.}
 \item{switch}{index (between 0 and \code{numLambda}) at which we transition from linear to logarithmic jumps.}
 \item{alpha}{parameter controling trade off between lasso and ridge penalties. At value 1, we have a pure lasso penalty; at 0, pure ridge. Intermediate values provide a mixture of the two.}
@@ -28,11 +28,11 @@ The sequence of models implied by \code{numLambda} and \code{minLambdaRatio} is 
 \value{
  An object of type \code{clogitL1} with the following fields:
 
-\item{beta}{a (\code{numLambda} + 1)-by-p matrix of estimated coefficients. First row has all 0s}
-\item{lambda}{a vector of length \code{numLambda} + 1 containing the value of the regularisation parameter at which we obtained the fits.}
-\item{nz_beta}{a vector of length \code{numLambda} + 1 containg the number of nonzero parameter estimates for the fit at the corresponding regularisation parameter.}
-\item{ss_beta}{a vector of length \code{numLambda} + 1 containing the number of predictors considered by the sequential strong rule at that iteration.}
-\item{dev_perc}{a vector of length \code{numLambda} + 1 containing the percentage of null deviance explained by the model represented by that row in the matrix.}
+\item{beta}{(\code{numLambda} + 1)-by-p matrix of estimated coefficients. First row has all 0s}
+\item{lambda}{vector of length \code{numLambda} + 1 containing the value of the regularisation parameter at which we obtained the fits.}
+\item{nz_beta}{vector of length \code{numLambda} + 1 containing the number of nonzero parameter estimates for the fit at the corresponding regularisation parameter.}
+\item{ss_beta}{vector of length \code{numLambda} + 1 containing the number of predictors considered by the sequential strong rule at that iteration.}
+\item{dev_perc}{vector of length \code{numLambda} + 1 containing the percentage of null deviance explained by the model represented by that row in the matrix.}
 \item{y_c}{reordered vector of responses. Grouped by stratum with cases coming first.}
 \item{X_c}{reordered matrix of predictors. See above.}
 \item{strata_c}{reordered stratum vector. See above.}
@@ -61,7 +61,7 @@ strata = sort(rep(1:K, n))
 
 par(mfrow = c(1,2))
 # fit the conditional logistic model
-clObj = clogitL1(y, X, strata)
+clObj = clogitL1(y=y, x=X, strata)
 plot(clObj, logX=TRUE)
 
 # cross validation

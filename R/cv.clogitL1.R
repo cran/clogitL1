@@ -35,7 +35,7 @@ cv.clogitL1 = function(clObj, numFolds=10){
 	min.lambda = plot.lambdas[which.min(mean.cv.err)] # lambda of minimum cv error
 	min.lambda.1sd = max(plot.lambdas[mean.cv.err-sd.cv.err <= min(mean.cv.err)])
 
-	out = list(cv_dev=cv.mat, lambda=plot.lambdas, folds=foldVec, mean_cv=mean.cv.err, se_cv=sd.cv.err, minCV_lambda=min.lambda, minCV1se_lambda=min.lambda.1sd, nz_beta=clObj$nz_beta[-1])
+	out = list(cv_dev=cv.mat, lambda=plot.lambdas, folds=foldVec, mean_cv=mean.cv.err, se_cv=sd.cv.err, minCV_lambda=min.lambda, minCV1se_lambda=min.lambda.1sd, nz_beta=clObj$nz_beta[-1], beta=clObj$beta[-1,])
 	class(out) = "cv.clogitL1"
 	out
 }

@@ -34,7 +34,7 @@ strata = sort(rep(1:K, n))
 
 par(mfrow = c(1,2))
 # fit the conditional logistic model
-clObj = clogitL1(y, X, strata)
+clObj = clogitL1(y=y, x=X, strata)
 plot(clObj, logX=TRUE)
 
 # cross validation

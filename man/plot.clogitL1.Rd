@@ -5,13 +5,20 @@
  Takes a \code{clogitL1} object and plots the parameter profile associated with it.
 }
 
+
 \usage{
- \method{plot}{clogitL1} (x, logX = T, ...)
+ \method{plot}{clogitL1} (x, logX=T,
+	add.legend=F, add.labels=T,
+ 	lty=1:ncol(x$beta), col=1:ncol(x$beta), ...) 
 }
 
 \arguments{
 \item{x}{an object of type \code{clogitL1}.}
 \item{logX}{should the horizontal axis be on log scale?}
+\item{add.legend}{set to TRUE if legend should be printed in top right hand corner. Legend will contain names of variables in data.frame, if specified, otherwise will be numbered from 1 to p in order encountered in original input matrix x}
+\item{add.labels}{set to TRUE if labels are to be added to curves at leftmost side. If variable names are available, these are plotted, otherwise, curves are numbered from 1 to p in order encountered in original input matrix x}
+\item{lty}{usual 'lty' plotting parameter.}
+\item{col}{usual 'col' plotting parameter.}
 \item{...}{additional arguments to \code{plot} function}
 }
 
@@ -35,7 +42,7 @@ strata = sort(rep(1:K, n))
 
 par(mfrow = c(1,2))
 # fit the conditional logistic model
-clObj = clogitL1(y, X, strata)
+clObj = clogitL1(y=y, x=X, strata)
 plot(clObj, logX=TRUE)
 
 # cross validation
