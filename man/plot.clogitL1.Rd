@@ -22,6 +22,10 @@
 \item{...}{additional arguments to \code{plot} function}
 }
 
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \seealso{
  \code{\link{clogitL1}}
 }

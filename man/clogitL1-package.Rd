@@ -11,7 +11,7 @@ Tools for the fitting and cross validation of exact conditional logistic regress
 \tabular{ll}{
 Package: \tab clogitL1\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
+Version: \tab 1.4\cr
 Date: \tab 2013-05-06\cr
 License: \tab GPL-2\cr
 }
@@ -27,6 +27,11 @@ Only 7 functions:
 \item \code{summary.cv.clogitL1}
 }
 }
+
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \author{
 Stephen Reid and Rob Tibshirani
 

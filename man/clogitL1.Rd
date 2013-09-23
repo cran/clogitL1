@@ -41,6 +41,10 @@ The sequence of models implied by \code{numLambda} and \code{minLambdaRatio} is 
 \item{alpha}{penalty trade off parameter.}
 }
 
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \seealso{
  \code{\link{plot.clogitL1}}
 }

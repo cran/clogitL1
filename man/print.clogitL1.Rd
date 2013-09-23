@@ -24,6 +24,10 @@ prints a 3 column data frame with columns:
 }
 }
 
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \seealso{
  \code{\link{clogitL1}}
 }

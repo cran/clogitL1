@@ -31,6 +31,10 @@ An object of type \code{cv.clogitL1} with the following fields:
 \item{nz_beta}{number of nonzero parameter estimates at each value of the regularisation parameter.}
 }
 
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \seealso{
  \code{\link{clogitL1}}, \code{\link{plot.cv.clogitL1}}
 }

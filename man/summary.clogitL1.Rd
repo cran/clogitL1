@@ -18,6 +18,10 @@
 Returns a list with a elements \code{Coefficients}, which holds the matrix of coefficients estimated (each row holding the estimates for a given value of the smoothing parameter) and \code{Lambda}, which holds the vector of smoothing parameters at which fits were produced.
 }
 
+\references{
+\url{http://www.jstatsoft.org/v58/i12/}
+}
+
 \seealso{
  \code{\link{clogitL1}}
 }
