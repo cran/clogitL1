@@ -440,7 +440,7 @@ NumericMatrix fit_cloglik (const vector<int>& y, const vector<double>& X, int K,
 	for (int k = 0; k < K; k++) totalObs += nVec[k];
 	
 	// declare matrix that will house the betas
-	NumericMatrix beta = NumericMatrix (numLambda + 1, p + 6);
+	NumericMatrix beta = NumericMatrix (numLambda + 1, p + 7);
 	
 	// initial computations
 	allocateMemoryForLikelihoodComputations(K, p, mVec, nVec, &score, &hessian, &xMean, &caseSums);
@@ -539,7 +539,8 @@ NumericMatrix fit_cloglik (const vector<int>& y, const vector<double>& X, int K,
 	}
 	//printf ("\nOut of for loop\n");
 	deallocateMemoryForLikelihoodComputations(K, p, mVec, &score, &hessian, &xMean, &caseSums, &linPred, &maxLinPred, &sumLinPredCases);
-	
+	free (currentBeta);
+	free (topOfLoopBeta);
 	// copy lambda values into last column of beta matrix being returned
 	for (int i = 0; i < numLambda + 1; i++){
 		beta(i, p) = lambdaVec[i];
